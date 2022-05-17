@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>QT | 关关雎鸠</title><meta name="keywords" content="QT"><meta name="author" content="烟柳画桥"><meta name="copyright" content="烟柳画桥"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文简单的说一下，Qt一些坑。 文字兼容问题由于字符编码的储存不一样，Qt的中文显示会出现一些问题（如果仅仅是让它在代码里显示中文的话，打开时选择一下字符编码就好了） 解决办法如下（含一些已经失效的办法）  先将对应的cpp文件用windows自带的记事本打开，另存为UTF-8格式，然后在代码中，遇到中文字符，使用QStringLiteral(“中文”)进行修饰这种方式每次新建一个class就要切">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT">
+<meta property="og:url" content="http://example.com/2018/11/25/QT/index.html">
+<meta property="og:site_name" content="关关雎鸠">
+<meta property="og:description" content="本文简单的说一下，Qt一些坑。 文字兼容问题由于字符编码的储存不一样，Qt的中文显示会出现一些问题（如果仅仅是让它在代码里显示中文的话，打开时选择一下字符编码就好了） 解决办法如下（含一些已经失效的办法）  先将对应的cpp文件用windows自带的记事本打开，另存为UTF-8格式，然后在代码中，遇到中文字符，使用QStringLiteral(“中文”)进行修饰这种方式每次新建一个class就要切">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2018-11-25T09:06:12.000Z">
+<meta property="article:modified_time" content="2019-03-10T08:42:08.786Z">
+<meta property="article:author" content="烟柳画桥">
+<meta property="article:tag" content="QT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2018/11/25/QT/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'QT',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-03-10 16:42:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">关关雎鸠</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">QT</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-11-25T09:06:12.000Z" title="发表于 2018-11-25 17:06:12">2018-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-03-10T08:42:08.786Z" title="更新于 2019-03-10 16:42:08">2019-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/QT/">QT</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="QT"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>本文简单的说一下，Qt一些坑。</p>
+<h2 id="文字兼容问题"><a href="#文字兼容问题" class="headerlink" title="文字兼容问题"></a>文字兼容问题</h2><p>由于字符编码的储存不一样，Qt的中文显示会出现一些问题（如果仅仅是让它在代码里显示中文的话，打开时选择一下字符编码就好了）</p>
+<p>解决办法如下（含一些已经失效的办法）</p>
+<ul>
+<li>先将对应的cpp文件用windows自带的记事本打开，另存为UTF-8格式，然后在代码中，遇到中文字符，使用QStringLiteral(“中文”)进行修饰<br>这种方式每次新建一个class就要切出去用记事本编辑一下实在麻烦，而且每个中文字符串都要用QStringLiteral来修饰，实在麻烦</li>
+<li>在头文件申明中加上<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#pragma execution_character_set(&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure>
+一切OK了</li>
+</ul>
+<p>但方法二已经废弃了，只可以用在QT5的最初几个版本。</p>
+<p>此外还有一些办法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QString str1=QStringLiteral(&quot;中文字符&quot;);  </span><br><span class="line">QString str2=QString::fromLocal8bit(&quot;中文字符&quot;);  </span><br><span class="line">QString str3=QString::fromWCharArray(L&quot;中文字符&quot;);  </span><br><span class="line">QString str4=u8&quot;中文字符&quot;;    //好像这种方法只适合C++11以上版本</span><br></pre></td></tr></table></figure>
+<p>不过这些办法貌似还是没能解决我的问题——分别用QT和VS2017读取文本数据，中文就会变为一些奇妙的东西。（ps_暂时未找到合适的办法，以上是我网上找了好多博客总结的办法，当然最简单的就是你其中一个打开就好了）</p>
+<h2 id="多界面切换问题"><a href="#多界面切换问题" class="headerlink" title="多界面切换问题"></a>多界面切换问题</h2><p>主界面（Widget) 对话框（Dialog)也可以称为子界面</p>
+<p>对于一个界面我们有这么几种操作可以做</p>
+<ul>
+<li>close()  关闭界面，如果是主界面那么直接退出程序</li>
+<li>hide()  隐藏界面，一般用于界面转换的时候，由主界面转向子界面</li>
+<li>show()  显示一个界面<br>以及一些其他的更改界面大小之类的操作</li>
+</ul>
+<p>当我们从主界面跳转至子界面<br>主界面中我们这么写ps– this-&gt;hide();new-&gt;exec();this-&gt;show();<br>子界面可以</p>
+<ul>
+<li>槽函数clicked() 和 accept();</li>
+<li>close();</li>
+</ul>
+<p>这里说一下show() 和 exec()的区别</p>
+<h3 id="show-非模式对话框"><a href="#show-非模式对话框" class="headerlink" title="show()非模式对话框"></a>show()非模式对话框</h3><p>显示一个非模式对话框。控制权即刻返回给调用函数。<br>弹出窗口是否模式对话框，取决于modal属性的值。<br>（原文：Shows the dialog as a modeless dialog. Control returns immediately to the calling code. The dialog will be modal or modeless according to the value of the modal property. ）<br><img src="https://img-blog.csdn.net/20160405192916896"></p>
+<h3 id="exec-模式对话框"><a href="#exec-模式对话框" class="headerlink" title="exec()模式对话框"></a>exec()模式对话框</h3><p>显示一个模式对话框，并且锁住程序直到用户关闭该对话框为止。函数返回一个DialogCode结果。<br>在对话框弹出期间，用户不可以切换同程序下的其它窗口，直到该对话框被关闭。<br>（原文：Shows the dialog as a modal , blocking until the user closes it. The function returns a DialogCode result.<br>Users cannot interact with any other window in the same application until they close the dialog. ）<br><img src="https://img-blog.csdn.net/20160405193105350"></p>
+<p>也就是说如果是exec()那么只有这个操作结束返回之后才会进行下一步操作，也就是阻塞（开启一个事件循环，所谓事件循环，可以理解成一个无限循环。Qt 在开启了事件循环之后，系统发出的各种事件才能够被程序监听到。这个事件循环相当于一种轮询的作用。既然是无限循环，当然在开启了事件循环的地方，代码就会被阻塞，后面的语句也就不会被执行到。因此，对于使用了exec()显示的模态对话框，我们可以在exec()函数之后直接从对话框的对象获取到数据值。）<br>通俗的说就是运用exec()之后我们只有对这个对话框完成操作后才能进行其他的，而show()则可以同时进行其他操作（默认情况下）。<br>exec()是有返回值的，QDialog::Accepted  or  QDialog::Rejected<br>当然我们调用槽函数accept() 也可以在show()中达到这个操作。</p>
+<h2 id="显示数据可直接更改问题。"><a href="#显示数据可直接更改问题。" class="headerlink" title="显示数据可直接更改问题。"></a>显示数据可直接更改问题。</h2><p>ui-&gt;tableView-&gt;setEditTriggers(QTableView::NoEditTriggers); 设置不可编辑成功这是只针对TableView的。其他的也类似。</p>
+<p>先说说如何显示数据吧，有三种</p>
+<ul>
+<li>Table View (即以表格的形式显示<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	需要引用QStandardItemModel头文件</span><br><span class="line">	QStandardItemModel  *model = new QStandardItemModel();</span><br><span class="line">	model-&gt;setColumnCount(7);   //设置列数</span><br><span class="line">    model-&gt;setHeaderData(0,Qt::Horizontal,QString::fromStdString(&quot;XX&quot;));   //设置每列的名称</span><br><span class="line">    model-&gt;setHeaderData(1,Qt::Horizontal,QString::fromStdString(&quot;XX&quot;));</span><br><span class="line">    model-&gt;setHeaderData(2,Qt::Horizontal,QString::fromStdString(&quot;XXX&quot;));</span><br><span class="line">    model-&gt;setHeaderData(3,Qt::Horizontal,QString::fromStdString(&quot;XX&quot;));</span><br><span class="line">    model-&gt;setHeaderData(4,Qt::Horizontal,QString::fromStdString(&quot;XX&quot;));</span><br><span class="line">    model-&gt;setHeaderData(5,Qt::Horizontal,QString::fromStdString(&quot;XX&quot;));</span><br><span class="line">    model-&gt;setHeaderData(6,Qt::Horizontal,QString::fromStdString(&quot;XXX&quot;));</span><br><span class="line">    ui-&gt;tableView-&gt;setModel(model);  //在界面中显示我们设置的表格</span><br><span class="line">    当然也可以逐个读取</span><br><span class="line">	QStringList headers;</span><br><span class="line">	headers &lt;&lt; &quot;ID&quot; &lt;&lt; &quot;Name&quot; &lt;&lt; &quot;Age&quot; &lt;&lt; &quot;Sex&quot;;</span><br><span class="line">	tableWidget.setHorizontalHeaderLabels(headers);</span><br><span class="line">	</span><br><span class="line">	读入数据</span><br><span class="line">	ui-&gt;tableView-&gt;setEditTriggers(QTableView::NoEditTriggers);</span><br><span class="line">    for(int i = 0;i &lt; 7;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ui-&gt;tableView-&gt;setColumnWidth(i,70);  设置宽度</span><br><span class="line">    &#125;</span><br><span class="line">    set&lt;USER&gt;::iterator p = Index::user.begin();</span><br><span class="line">    model-&gt;removeRows(0,model-&gt;rowCount());   //删除行，也就是初始化显示界面</span><br><span class="line">    for(int i = 0;i &lt; Index::user.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        model-&gt;setItem(i,0,new QStandardItem(QString::fromStdString(p-&gt;GetName())));</span><br><span class="line">        model-&gt;setItem(i,1,new QStandardItem(QString::fromStdString(p-&gt;GetSex())));</span><br><span class="line">        model-&gt;setItem(i,2,new QStandardItem(QString::fromStdString(p-&gt;GetId_number())));</span><br><span class="line">        model-&gt;setItem(i,3,new QStandardItem(QString::number(p-&gt;GetAge())));</span><br><span class="line">        model-&gt;setItem(i,4,new QStandardItem(QString::fromStdString(p-&gt;GetAddress())));</span><br><span class="line">        model-&gt;setItem(i,5,new QStandardItem(QString::fromStdString(p-&gt;GetCareer())));</span><br><span class="line">        model-&gt;setItem(i,6,new QStandardItem(QString::fromStdString(p-&gt;GetPhone_number())));</span><br><span class="line">        p++;</span><br><span class="line">    &#125;</span><br><span class="line">	具体看你自己的程序</span><br><span class="line"></span><br><span class="line">- List View (即以列表的形式）</span><br><span class="line">- </span><br><span class="line">QStringList user;</span><br><span class="line">user += &quot;first&quot;;</span><br><span class="line">user +=&quot;second&quot;;</span><br><span class="line">QStringListModel *model = new QStringListModel(user);</span><br><span class="line">userList-&gt;setModel(model);        //userList是个QListView</span><br><span class="line">user += &quot;third&quot;;</span><br><span class="line">model-&gt;setStringList(user);</span><br><span class="line">model-&gt;removeRows(0,model-&gt;rowCount());//从第0行开始，删除所有行</span><br><span class="line">model-&gt;removeRows(0,2);//从第0行开始，删除前2行</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- Tree View (即以树状图形式）</span><br><span class="line">这个比较详细 我不在多说</span><br><span class="line">[http://www.it165.net/pro/html/201405/14029.html](http://www.it165.net/pro/html/201405/14029.html)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>以后再做补充</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">烟柳画桥</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/11/25/QT/">http://example.com/2018/11/25/QT/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">关关雎鸠</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/QT/">QT</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2018/11/26/pq/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Pyquery解析库</div></div></a></div><div class="next-post pull-right"><a href="/2018/10/31/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">梯度下降算法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">烟柳画桥</div><div class="author-info__description">一蓑烟雨任平生，无畏西东</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">文字兼容问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%95%8C%E9%9D%A2%E5%88%87%E6%8D%A2%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">多界面切换问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#show-%E9%9D%9E%E6%A8%A1%E5%BC%8F%E5%AF%B9%E8%AF%9D%E6%A1%86"><span class="toc-number">2.1.</span> <span class="toc-text">show()非模式对话框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exec-%E6%A8%A1%E5%BC%8F%E5%AF%B9%E8%AF%9D%E6%A1%86"><span class="toc-number">2.2.</span> <span class="toc-text">exec()模式对话框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%8F%AF%E7%9B%B4%E6%8E%A5%E6%9B%B4%E6%94%B9%E9%97%AE%E9%A2%98%E3%80%82"><span class="toc-number">3.</span> <span class="toc-text">显示数据可直接更改问题。</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/17/class2/" title="解析库Beautiful-Soup"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解析库Beautiful-Soup"/></a><div class="content"><a class="title" href="/2022/05/17/class2/" title="解析库Beautiful-Soup">解析库Beautiful-Soup</a><time datetime="2022-05-17T11:59:54.141Z" title="发表于 2022-05-17 19:59:54">2022-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/09/%E5%8A%9B%E6%89%A3-%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84/" title="力扣题解—1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="力扣题解—1"/></a><div class="content"><a class="title" href="/2021/09/09/%E5%8A%9B%E6%89%A3-%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84/" title="力扣题解—1">力扣题解—1</a><time datetime="2021-09-09T05:33:08.000Z" title="发表于 2021-09-09 13:33:08">2021-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/08/%E8%BF%B7%E8%8C%AB%E7%9A%84%E7%8E%B0%E5%9C%A8/" title="迷茫的现在"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="迷茫的现在"/></a><div class="content"><a class="title" href="/2021/09/08/%E8%BF%B7%E8%8C%AB%E7%9A%84%E7%8E%B0%E5%9C%A8/" title="迷茫的现在">迷茫的现在</a><time datetime="2021-09-08T14:54:21.000Z" title="发表于 2021-09-08 22:54:21">2021-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/09/25/DosBox/" title="DosBox"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DosBox"/></a><div class="content"><a class="title" href="/2019/09/25/DosBox/" title="DosBox">DosBox</a><time datetime="2019-09-25T03:08:51.000Z" title="发表于 2019-09-25 11:08:51">2019-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/09/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="神经网络"/></a><div class="content"><a class="title" href="/2019/09/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络">神经网络</a><time datetime="2019-09-08T03:20:09.000Z" title="发表于 2019-09-08 11:20:09">2019-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 烟柳画桥</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

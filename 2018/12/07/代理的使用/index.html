@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>代理的使用 | 关关雎鸠</title><meta name="keywords" content="爬虫"><meta name="author" content="烟柳画桥"><meta name="copyright" content="烟柳画桥"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文记录一下代理的使用方法。 代理的分类代理有免费的和收费的。免费的一般很不稳定，可用率能有百分之10就不错了 国内有很多代理商，提供的代理质量也参差不齐，这里我们以阿步云为例，他提供两种隧道模式(协议的不同）。1——http隧道  专业版 动态版 经典版  2——socks隧道  经典版  http使用较多，我们就以它为例来说。专业版的代理会锁定一个ip 一分钟，到期后自动切换动态版顾名思义，每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代理的使用">
+<meta property="og:url" content="http://example.com/2018/12/07/%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="关关雎鸠">
+<meta property="og:description" content="本文记录一下代理的使用方法。 代理的分类代理有免费的和收费的。免费的一般很不稳定，可用率能有百分之10就不错了 国内有很多代理商，提供的代理质量也参差不齐，这里我们以阿步云为例，他提供两种隧道模式(协议的不同）。1——http隧道  专业版 动态版 经典版  2——socks隧道  经典版  http使用较多，我们就以它为例来说。专业版的代理会锁定一个ip 一分钟，到期后自动切换动态版顾名思义，每">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2018-12-07T13:48:21.000Z">
+<meta property="article:modified_time" content="2019-03-10T08:42:36.252Z">
+<meta property="article:author" content="烟柳画桥">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2018/12/07/%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '代理的使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-03-10 16:42:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">关关雎鸠</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">代理的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-12-07T13:48:21.000Z" title="发表于 2018-12-07 21:48:21">2018-12-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-03-10T08:42:36.252Z" title="更新于 2019-03-10 16:42:36">2019-03-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="代理的使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>本文记录一下代理的使用方法。</p>
+<h2 id="代理的分类"><a href="#代理的分类" class="headerlink" title="代理的分类"></a>代理的分类</h2><p>代理有免费的和收费的。免费的一般很不稳定，可用率能有百分之10就不错了</p>
+<p>国内有很多代理商，提供的代理质量也参差不齐，这里我们以阿步云为例，他提供两种隧道模式(协议的不同）。<br>1——http隧道</p>
+<ul>
+<li>专业版</li>
+<li>动态版</li>
+<li>经典版</li>
+</ul>
+<p>2——socks隧道</p>
+<ul>
+<li>经典版</li>
+</ul>
+<p>http使用较多，我们就以它为例来说。<br>专业版的代理会锁定一个ip 一分钟，到期后自动切换<br>动态版顾名思义，每次请求都会更换一个新的ip<br>经典版则是锁定一个ip 15分钟。</p>
+<p>对于一个爬虫来说的话，更建议使用动态版，ip封禁后直接请求获取新的代理。<br>阿步云给了详细的接入文档。</p>
+<p>下面列出一个python版的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from urllib import request</span><br><span class="line"></span><br><span class="line"># 要访问的目标页面</span><br><span class="line">targetUrl = &quot;http://test.abuyun.com/proxy.php&quot;</span><br><span class="line">#targetUrl = &quot;http://proxy.abuyun.com/switch-ip&quot;</span><br><span class="line">#targetUrl = &quot;http://proxy.abuyun.com/current-ip&quot;</span><br><span class="line"></span><br><span class="line"># 代理服务器</span><br><span class="line">proxyHost = &quot;proxy.abuyun.com&quot;</span><br><span class="line">proxyPort = &quot;9010&quot;</span><br><span class="line"></span><br><span class="line"># 代理隧道验证信息</span><br><span class="line">proxyUser = &quot;H01234567890123P&quot;</span><br><span class="line">proxyPass = &quot;0123456789012345&quot;</span><br><span class="line"></span><br><span class="line">proxyMeta = &quot;http://%(user)s:%(pass)s@%(host)s:%(port)s&quot; % &#123;</span><br><span class="line">    &quot;host&quot; : proxyHost,</span><br><span class="line">    &quot;port&quot; : proxyPort,</span><br><span class="line">    &quot;user&quot; : proxyUser,</span><br><span class="line">    &quot;pass&quot; : proxyPass,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">proxy_handler = request.ProxyHandler(&#123;</span><br><span class="line">    &quot;http&quot;  : proxyMeta,</span><br><span class="line">    &quot;https&quot; : proxyMeta,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">#auth = request.HTTPBasicAuthHandler()</span><br><span class="line">#opener = request.build_opener(proxy_handler, auth, request.HTTPHandler)</span><br><span class="line"></span><br><span class="line">opener = request.build_opener(proxy_handler)</span><br><span class="line"></span><br><span class="line"># opener.addheaders = [(&quot;Proxy-Switch-Ip&quot;, &quot;yes&quot;)]</span><br><span class="line">request.install_opener(opener)</span><br><span class="line">resp = request.urlopen(targetUrl).read()</span><br><span class="line"></span><br><span class="line">print (resp)</span><br></pre></td></tr></table></figure>
+
+<p>有四个参数需要我们填入</p>
+<ul>
+<li>代理服务器</li>
+<li>代理端口号</li>
+<li>代理通行证书</li>
+<li>代理通行密钥</li>
+</ul>
+<p>代理服务器和端口号三个版本各自不同且唯一，通行证书和密钥则是在你购买之后才会得到直接复制代码然后填入对应参数就可以了。<br>想要更多可以看这里  <a target="_blank" rel="noopener" href="https://github.com/abuyun/proxy-demo/blob/master/python/python3/urllib/proxy-demo.py">https://github.com/abuyun/proxy-demo/blob/master/python/python3/urllib/proxy-demo.py</a></p>
+<p>假如我们要用selenium来操纵浏览器那么如何给他配置代理呢。<br>这里我们只列举selenium + Chrome的方法</p>
+<ul>
+<li>不用授权验证的代理</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(&#x27;--proxy-server=http://ip:port&#x27;)  </span><br><span class="line">driver = webdriver.Chrome(executable_path=&quot;C:\chromedriver.exe&quot;, chrome_options=0ptions)</span><br><span class="line">driver.get(&quot;http://ip138.com/&quot;)</span><br><span class="line">print(driver.page_source)</span><br></pre></td></tr></table></figure>
+
+<p>调用ChromeOptions这个接口把我们的代理ip放进去 然后再把参数传入我们的打开浏览器的接口里，这里注意一下————代码里的executable_path&#x3D;”C:\chromedriver.exe” 是我们chromedriver.exe所在的路径，如果我们已经把它放到了python的Scripts目录，那么可以省略这个参数。</p>
+<ul>
+<li>需要授权验证的代理</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import string</span><br><span class="line">import zipfile</span><br><span class="line"></span><br><span class="line">def create_proxyauth_extension(proxy_host, proxy_port,</span><br><span class="line">                               proxy_username, proxy_password,</span><br><span class="line">                               scheme=&#x27;http&#x27;, plugin_path=None):</span><br><span class="line">    &quot;&quot;&quot;代理认证插件</span><br><span class="line"></span><br><span class="line">    args:</span><br><span class="line">        proxy_host (str): 你的代理地址或者域名（str类型）</span><br><span class="line">        proxy_port (int): 代理端口号（int类型）</span><br><span class="line">        proxy_username (str):用户名（字符串）</span><br><span class="line">        proxy_password (str): 密码 （字符串）</span><br><span class="line">    kwargs:</span><br><span class="line">        scheme (str): 代理方式 默认http</span><br><span class="line">        plugin_path (str): 扩展的绝对路径</span><br><span class="line"></span><br><span class="line">    return str -&gt; plugin_path</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    if plugin_path is None:</span><br><span class="line">        plugin_path = &#x27;vimm_chrome_proxyauth_plugin.zip&#x27;</span><br><span class="line"></span><br><span class="line">    manifest_json = &quot;&quot;&quot;</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">        &quot;manifest_version&quot;: 2,</span><br><span class="line">        &quot;name&quot;: &quot;Chrome Proxy&quot;,</span><br><span class="line">        &quot;permissions&quot;: [</span><br><span class="line">            &quot;proxy&quot;,</span><br><span class="line">            &quot;tabs&quot;,</span><br><span class="line">            &quot;unlimitedStorage&quot;,</span><br><span class="line">            &quot;storage&quot;,</span><br><span class="line">            &quot;&lt;all_urls&gt;&quot;,</span><br><span class="line">            &quot;webRequest&quot;,</span><br><span class="line">            &quot;webRequestBlocking&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;background&quot;: &#123;</span><br><span class="line">            &quot;scripts&quot;: [&quot;background.js&quot;]</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;minimum_chrome_version&quot;:&quot;22.0.0&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    background_js = string.Template(</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    var config = &#123;</span><br><span class="line">            mode: &quot;fixed_servers&quot;,</span><br><span class="line">            rules: &#123;</span><br><span class="line">              singleProxy: &#123;</span><br><span class="line">                scheme: &quot;$&#123;scheme&#125;&quot;,</span><br><span class="line">                host: &quot;$&#123;host&#125;&quot;,</span><br><span class="line">                port: parseInt($&#123;port&#125;)</span><br><span class="line">              &#125;,</span><br><span class="line">              bypassList: [&quot;foobar.com&quot;]</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;;</span><br><span class="line"></span><br><span class="line">    chrome.proxy.settings.set(&#123;value: config, scope: &quot;regular&quot;&#125;, function() &#123;&#125;);</span><br><span class="line"></span><br><span class="line">    function callbackFn(details) &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            authCredentials: &#123;</span><br><span class="line">                username: &quot;$&#123;username&#125;&quot;,</span><br><span class="line">                password: &quot;$&#123;password&#125;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    chrome.webRequest.onAuthRequired.addListener(</span><br><span class="line">                callbackFn,</span><br><span class="line">                &#123;urls: [&quot;&lt;all_urls&gt;&quot;]&#125;,</span><br><span class="line">                [&#x27;blocking&#x27;]</span><br><span class="line">    );</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    ).substitute(</span><br><span class="line">        host=proxy_host,</span><br><span class="line">        port=proxy_port,</span><br><span class="line">        username=proxy_username,</span><br><span class="line">        password=proxy_password,</span><br><span class="line">        scheme=scheme,</span><br><span class="line">    )</span><br><span class="line">    with zipfile.ZipFile(plugin_path, &#x27;w&#x27;) as zp:</span><br><span class="line">        zp.writestr(&quot;manifest.json&quot;, manifest_json)</span><br><span class="line">        zp.writestr(&quot;background.js&quot;, background_js)</span><br><span class="line"></span><br><span class="line">    return plugin_path</span><br></pre></td></tr></table></figure>
+
+<p>我们可以把这个写进单独的文件或者只作为一个函数,调用这个返回值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from common.pubilc import create_proxyauth_extension</span><br><span class="line"></span><br><span class="line">proxyauth_plugin_path = create_proxyauth_extension(</span><br><span class="line">    proxy_host=&quot;XXXXX.com&quot;,</span><br><span class="line">    proxy_port=9020,</span><br><span class="line">    proxy_username=&quot;XXXXXXX&quot;,</span><br><span class="line">    proxy_password=&quot;XXXXXXX&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">co = webdriver.ChromeOptions()</span><br><span class="line"># co.add_argument(&quot;--start-maximized&quot;)</span><br><span class="line">co.add_extension(proxyauth_plugin_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome(executable_path=&quot;C:\chromedriver.exe&quot;, chrome_options=co)</span><br><span class="line">driver.get(&quot;http://ip138.com/&quot;)</span><br><span class="line">print(driver.page_source)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们可以不用了解上面的代码是什么原理，会用就行，当然理解最好。</p>
+<p>还有一些常规浏览器的代理使用方法，阿布云都有详细的文档<a target="_blank" rel="noopener" href="https://www.abuyun.com/http-proxy/dyn-manual.html">https://www.abuyun.com/http-proxy/dyn-manual.html</a></p>
+<p>然后什么代理好用呢，已经有大神自己做过评测了，想知道请移步<a target="_blank" rel="noopener" href="https://cuiqingcai.com/5094.html">https://cuiqingcai.com/5094.html</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">烟柳画桥</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2018/12/07/%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8/">http://example.com/2018/12/07/%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">关关雎鸠</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%88%AC%E8%99%AB/">爬虫</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/03/09/%E8%BD%AC%E8%BD%AE%E5%AF%86%E7%A0%81%E6%9C%BA/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">转轮密码机</div></div></a></div><div class="next-post pull-right"><a href="/2018/12/02/set/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">set</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2018/10/21/class0-1/" title="爬虫-网页基础"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-21</div><div class="title">爬虫-网页基础</div></div></a></div><div><a href="/2018/09/21/class1/" title="requests 库 and 正则表达式"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-09-21</div><div class="title">requests 库 and 正则表达式</div></div></a></div><div><a href="/2022/05/17/class2/" title="解析库Beautiful-Soup"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-17</div><div class="title">解析库Beautiful-Soup</div></div></a></div><div><a href="/2018/10/21/class0/" title="爬虫-HTTP基础"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-10-21</div><div class="title">爬虫-HTTP基础</div></div></a></div><div><a href="/2018/08/29/elm/" title="饿了么爬虫尝试"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-08-29</div><div class="title">饿了么爬虫尝试</div></div></a></div><div><a href="/2018/11/26/pq/" title="Pyquery解析库"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-26</div><div class="title">Pyquery解析库</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">烟柳画桥</div><div class="author-info__description">一蓑烟雨任平生，无畏西东</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">代理的分类</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/17/class2/" title="解析库Beautiful-Soup"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解析库Beautiful-Soup"/></a><div class="content"><a class="title" href="/2022/05/17/class2/" title="解析库Beautiful-Soup">解析库Beautiful-Soup</a><time datetime="2022-05-17T11:59:54.141Z" title="发表于 2022-05-17 19:59:54">2022-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/09/%E5%8A%9B%E6%89%A3-%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84/" title="力扣题解—1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="力扣题解—1"/></a><div class="content"><a class="title" href="/2021/09/09/%E5%8A%9B%E6%89%A3-%E7%BF%BB%E8%BD%AC%E6%95%B0%E7%BB%84/" title="力扣题解—1">力扣题解—1</a><time datetime="2021-09-09T05:33:08.000Z" title="发表于 2021-09-09 13:33:08">2021-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/08/%E8%BF%B7%E8%8C%AB%E7%9A%84%E7%8E%B0%E5%9C%A8/" title="迷茫的现在"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="迷茫的现在"/></a><div class="content"><a class="title" href="/2021/09/08/%E8%BF%B7%E8%8C%AB%E7%9A%84%E7%8E%B0%E5%9C%A8/" title="迷茫的现在">迷茫的现在</a><time datetime="2021-09-08T14:54:21.000Z" title="发表于 2021-09-08 22:54:21">2021-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/09/25/DosBox/" title="DosBox"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DosBox"/></a><div class="content"><a class="title" href="/2019/09/25/DosBox/" title="DosBox">DosBox</a><time datetime="2019-09-25T03:08:51.000Z" title="发表于 2019-09-25 11:08:51">2019-09-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/09/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="神经网络"/></a><div class="content"><a class="title" href="/2019/09/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="神经网络">神经网络</a><time datetime="2019-09-08T03:20:09.000Z" title="发表于 2019-09-08 11:20:09">2019-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 烟柳画桥</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
